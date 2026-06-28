@@ -4,28 +4,28 @@
   /* ===== Данные каталога (раздел 6 ТЗ) ===== */
   const PRODUCTS = [
     {
-      id: 'disc-chernosliv', type: 'disc',
+      id: 'disc-chernosliv', type: 'disc', img: 'images/disc-chernosliv.png',
       name: 'Фрукт диск с черносливом', eng: 'FRUIT DISC', taste: 'Чернослив',
       desc: 'Спрессованный чернослив с орехами. Лёгкий, насыщенный, с природной сладостью.',
       packCount: 50, packPrice: 1499, unitPrice: 30,
       badges: ['Без сахара', 'Без глютена', 'Веган'], rating: '4.9'
     },
     {
-      id: 'disc-yabloko', type: 'disc',
+      id: 'disc-yabloko', type: 'disc', img: 'images/disc-yabloko.png',
       name: 'Фрукт диск с яблоком', eng: 'FRUIT DISC', taste: 'Яблоко',
       desc: 'Яблоко и орехи в плотном диске. Свежий фруктовый вкус, удобный формат.',
       packCount: 50, packPrice: 1499, unitPrice: 30,
       badges: ['Без сахара', 'Без глютена', 'Веган'], rating: '4.9'
     },
     {
-      id: 'bar-kuraga', type: 'bar',
+      id: 'bar-kuraga', type: 'bar', img: 'images/bar-kuraga.png',
       name: 'Фрукт бар с курагой', eng: 'FRUIT BAR', taste: 'Курага',
       desc: 'Курага и орехи в батончике. Солнечный вкус и натуральная энергия — идеально в дорогу.',
       packCount: 30, packPrice: 1349, unitPrice: 45,
       badges: ['Без сахара', 'Без глютена', 'Веган'], rating: '4.9'
     },
     {
-      id: 'bar-yabloko', type: 'bar',
+      id: 'bar-yabloko', type: 'bar', img: 'images/bar-yabloko.png',
       name: 'Фрукт бар с яблоком', eng: 'FRUIT BAR', taste: 'Яблоко',
       desc: 'Яблочный батончик с орехами. Лёгкий перекус без лишнего.',
       packCount: 30, packPrice: 1349, unitPrice: 45,
@@ -67,7 +67,7 @@
     return `
       <article class="product-card" data-type="${p.type}">
         <div class="product-card__photo-wrap">
-          <span class="photo-placeholder" data-aspect="1/1">[ФОТО: упаковка ${p.name}]</span>
+          <img src="${p.img}" alt="${p.name}" class="photo-placeholder" data-aspect="1/1">
           <div class="product-card__glow"></div>
         </div>
         <ul class="badge-row">${p.badges.map(b => `<li class="badge"><span class="badge__dot"></span>${b}</li>`).join('')}</ul>
@@ -94,7 +94,7 @@
   function hitCardHTML(p) {
     return `
       <article class="hit-card">
-        <span class="photo-placeholder" data-aspect="1/1">[ФОТО: ${p.name}]</span>
+        <img src="${p.img}" alt="${p.name}" class="photo-placeholder" data-aspect="1/1">
         <span class="rating-badge">${p.rating} ★</span>
         <div class="hit-card__top">
           <h3 class="hit-card__name">${p.name}</h3>

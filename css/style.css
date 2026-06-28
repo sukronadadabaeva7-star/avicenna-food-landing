@@ -211,6 +211,11 @@ h1,h2,h3{ font-family:'Onest',sans-serif; color:var(--cream); margin:0; }
 .photo-placeholder--avatar{ width:64px; height:64px; aspect-ratio:1/1; border-radius:50%; font-size:9px; }
 .photo-placeholder--logo{ width:36px; height:36px; aspect-ratio:1/1; border-radius:8px; font-size:7px; }
 
+img.photo-placeholder{
+  border-style:solid; border-color:transparent; object-fit:cover; padding:0; background:none;
+}
+img.photo-placeholder--logo{ object-fit:contain; background:transparent; }
+
 /* ===== Cards (product) ===== */
 .product-card{
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-card);
@@ -296,6 +301,11 @@ h1,h2,h3{ font-family:'Onest',sans-serif; color:var(--cream); margin:0; }
 }
 .review-card__stars{ color:var(--orange); margin:var(--space-2) 0; }
 .review-card__name{ color:var(--cream); font-weight:600; margin-top:var(--space-3); }
+.avatar-letter{
+  width:64px; height:64px; border-radius:50%; margin:0 auto;
+  background:var(--green); color:#20160E; font-family:'Onest',sans-serif; font-weight:800; font-size:24px;
+  display:flex; align-items:center; justify-content:center;
+}
 @media (max-width:900px){ .reviews__grid{ grid-template-columns:1fr; } }
 
 /* ===== Quiz ===== */
