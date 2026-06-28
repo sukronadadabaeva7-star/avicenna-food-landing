@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avicenna Food — натуральные фрукт-бары и фрукт-диски</title>
+<meta name="description" content="Фрукт-бары и фрукт-диски из сухофруктов и орехов. Без добавленного сахара, без глютена, без пальмового масла, веган. Доставка по всей стране.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<!-- 4.1 HEADER -->
+<header class="header" id="header">
+  <div class="header__pill container">
+    <a href="#" class="header__logo">
+      <span class="photo-placeholder photo-placeholder--logo" data-aspect="3/1">[ФОТО: логотип Avicenna Food, белый, высота 36px]</span>
+      <span class="header__logo-text">AVICENNA FOOD</span>
+    </a>
+
+    <nav class="header__nav" id="primary-nav">
+      <a href="#hero">Главная</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#composition">Состав</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#delivery">Доставка</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="icon-btn" type="button" aria-label="Поиск">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn icon-btn--cart" type="button" id="cart-toggle" aria-label="Корзина" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <a href="#order" class="btn btn--primary btn--sm">Заказать</a>
+      <button class="burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 4.2 HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero__grid">
+      <div class="hero__text reveal">
+        <p class="eyebrow">Натуральный перекус нового уровня</p>
+        <h1 class="h1">Сладко. Без сахара.<br>Без глютена.</h1>
+        <p class="hero__subtitle">Фрукт-бары и фрукт-диски из спелых сухофруктов и орехов. Без добавленного сахара, без глютена, без пальмового масла. Просто еда — такая, как должна быть.</p>
+        <div class="hero__actions">
+          <a href="#catalog" class="btn btn--primary">Выбрать вкус</a>
+          <a href="#composition" class="btn btn--secondary">Смотреть состав</a>
+        </div>
+        <ul class="badge-row" aria-label="Свойства продукта">
+          <li class="badge"><span class="badge__dot"></span>Без сахара</li>
+          <li class="badge"><span class="badge__dot"></span>Без глютена</li>
+          <li class="badge"><span class="badge__dot"></span>Веган</li>
+          <li class="badge"><span class="badge__dot"></span>Без пальмового масла</li>
+        </ul>
+      </div>
+
+      <div class="hero__art reveal">
+        <div class="hero__seal">100% натуральный состав</div>
+        <div class="hero__product-wrap">
+          <span class="photo-placeholder photo-placeholder--hero" data-aspect="4/5">[ФОТО: батончик/упаковка крупно, png без фона]</span>
+          <span class="ghost-word" aria-hidden="true">ВКУС</span>
+          <span class="ingredient ingredient--1">[ФОТО: чернослив]</span>
+          <span class="ingredient ingredient--2">[ФОТО: курага]</span>
+          <span class="ingredient ingredient--3">[ФОТО: ядра орехов]</span>
+          <span class="ingredient ingredient--4">[ФОТО: долька яблока]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.3 ТОП ПРОДУКТОВ -->
+  <section class="section hits">
+    <div class="container">
+      <h2 class="h2 align-center reveal">Хиты Avicenna</h2>
+      <div class="hits__grid" id="hits-grid"></div>
+      <div class="align-center">
+        <a href="#catalog" class="btn btn--secondary reveal">Перейти в каталог</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.4 КАТАЛОГ -->
+  <section class="section catalog" id="catalog">
+    <div class="container">
+      <h2 class="h2 align-center reveal">Каталог</h2>
+
+      <div class="filter-tabs reveal" role="tablist" aria-label="Фильтр каталога">
+        <button class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">Все</button>
+        <button class="filter-tab" data-filter="disc" role="tab" aria-selected="false">Диски</button>
+        <button class="filter-tab" data-filter="bar" role="tab" aria-selected="false">Бары</button>
+      </div>
+
+      <div class="catalog__grid" id="catalog-grid"></div>
+    </div>
+  </section>
+
+  <!-- 4.5 ПРЕИМУЩЕСТВА -->
+  <section class="section benefits" id="about">
+    <div class="container benefits__grid">
+      <div class="benefits__list">
+        <h2 class="h2 reveal">Avicenna Food — это</h2>
+
+        <article class="benefit reveal">
+          <span class="benefit__num" aria-hidden="true">1</span>
+          <div>
+            <h3 class="h3">Честный состав</h3>
+            <p>Только сухофрукты и орехи. Ничего, чего нельзя прочитать вслух: без добавленного сахара, без глютена, без пальмового масла.</p>
+          </div>
+        </article>
+
+        <article class="benefit reveal">
+          <span class="benefit__num" aria-hidden="true">2</span>
+          <div>
+            <h3 class="h3">Удобно везде</h3>
+            <p>Не тает, не крошится, не пачкает руки. В рюкзак ребёнку, в сумку на тренировку, в ящик стола.</p>
+          </div>
+        </article>
+
+        <article class="benefit reveal">
+          <span class="benefit__num" aria-hidden="true">3</span>
+          <div>
+            <h3 class="h3">Натуральная энергия</h3>
+            <p>Сухофрукты и орехи дают устойчивый заряд — хороший перекус до тренировки и в дорогу.</p>
+          </div>
+        </article>
+
+        <article class="benefit reveal">
+          <span class="benefit__num" aria-hidden="true">4</span>
+          <div>
+            <h3 class="h3">Большие пачки</h3>
+            <p>Пачки 30–50 шт — выгоднее поштучных батончиков и всегда под рукой.</p>
+          </div>
+        </article>
+
+        <a href="#order" class="btn btn--primary reveal">Заказать</a>
+      </div>
+
+      <div class="benefits__photo reveal">
+        <span class="photo-placeholder" data-aspect="4/5">[ФОТО: продукт крупно]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.6 СОСТАВ -->
+  <section class="section composition" id="composition">
+    <div class="container composition__grid">
+      <div class="composition__photo reveal">
+        <span class="photo-placeholder" data-aspect="3/2">[ФОТО: разлом батончика крупно / сухофрукты и орехи]</span>
+      </div>
+
+      <div class="composition__text reveal">
+        <h2 class="h2">Что внутри и чего нет</h2>
+        <div class="composition__cols">
+          <div>
+            <h3 class="h3 composition__title composition__title--in">Внутри</h3>
+            <ul class="plain-list">
+              <li>Сухофрукты (чернослив / курага / яблоко)</li>
+              <li>Орехи</li>
+              <li>И всё</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3 composition__title composition__title--out">Чего нет</h3>
+            <ul class="plain-list">
+              <li>Добавленного сахара</li>
+              <li>Глютена</li>
+              <li>Пальмового масла</li>
+              <li>Консервантов</li>
+              <li>Красителей и ароматизаторов</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fine-print">Содержит природные сахара сухофруктов. Это калорийный продукт — рекомендуем 1–2 шт. в день.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.7 ОТЗЫВЫ -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <h2 class="h2 align-center reveal">Нам доверяют</h2>
+      <div class="reviews__grid">
+        <article class="review-card reveal">
+          <span class="photo-placeholder photo-placeholder--avatar" data-aspect="1/1">[ФОТО]</span>
+          <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+          <p>«Беру детям вместо конфет — едят с удовольствием, а я спокойна за состав.»</p>
+          <p class="review-card__name">— Карина</p>
+        </article>
+        <article class="review-card reveal">
+          <span class="photo-placeholder photo-placeholder--avatar" data-aspect="1/1">[ФОТО]</span>
+          <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+          <p>«Держу пачку на работе. Спасает в 4 часа дня, когда тянет на сладкое.»</p>
+          <p class="review-card__name">— Алина</p>
+        </article>
+        <article class="review-card reveal">
+          <span class="photo-placeholder photo-placeholder--avatar" data-aspect="1/1">[ФОТО]</span>
+          <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+          <p>«Удобно брать на пробежку: натуральные углеводы и ничего лишнего.»</p>
+          <p class="review-card__name">— Дмитрий</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.8 КВИЗ -->
+  <section class="section quiz">
+    <div class="container quiz__panel reveal">
+      <div id="quiz-intro">
+        <h2 class="h2">Не знаешь, с чего начать? Подбери свой вкус</h2>
+        <button class="btn btn--primary" id="quiz-start">Пройти тест</button>
+      </div>
+
+      <form id="quiz-form" class="quiz__form" hidden>
+        <fieldset class="quiz__step" data-step="1">
+          <legend>Что важнее?</legend>
+          <label class="radio-card"><input type="radio" name="priority" value="energy" required> Энергия до тренировки</label>
+          <label class="radio-card"><input type="radio" name="priority" value="snack"> Лёгкий перекус</label>
+          <label class="radio-card"><input type="radio" name="priority" value="kids"> Сладость детям</label>
+        </fieldset>
+
+        <fieldset class="quiz__step" data-step="2" hidden>
+          <legend>Какой вкус?</legend>
+          <label class="radio-card"><input type="radio" name="taste" value="chernosliv" required> Чернослив</label>
+          <label class="radio-card"><input type="radio" name="taste" value="kuraga"> Курага</label>
+          <label class="radio-card"><input type="radio" name="taste" value="yabloko"> Яблоко</label>
+        </fieldset>
+
+        <fieldset class="quiz__step" data-step="3" hidden>
+          <legend>Какой формат?</legend>
+          <label class="radio-card"><input type="radio" name="format" value="bar" required> Батончик</label>
+          <label class="radio-card"><input type="radio" name="format" value="disc"> Диск</label>
+        </fieldset>
+
+        <div class="quiz__nav">
+          <button type="button" class="btn btn--secondary" id="quiz-next">Далее</button>
+        </div>
+      </form>
+
+      <div id="quiz-result" class="quiz__result" hidden>
+        <h3 class="h3">Тебе подойдёт:</h3>
+        <div class="quiz__result-card" id="quiz-result-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.9 ДОСТАВКА -->
+  <section class="section delivery" id="delivery">
+    <div class="container">
+      <h2 class="h2 align-center reveal">Доставка и оплата</h2>
+      <ul class="delivery__grid">
+        <li class="delivery__item reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="20" r="1.5"/><circle cx="17.5" cy="20" r="1.5"/></svg>
+          <span>Доставка по всей стране</span>
+        </li>
+        <li class="delivery__item reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+          <span>СДЭК · Почта · Boxberry</span>
+        </li>
+        <li class="delivery__item reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          <span>Оплата онлайн или при получении</span>
+        </li>
+        <li class="delivery__item reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span>Отправка в течение 1–2 дней</span>
+        </li>
+      </ul>
+      <p class="fine-print align-center">Точные службы, сроки и условия — уточняются у владельца перед запуском.</p>
+    </div>
+  </section>
+
+  <!-- 4.10 ФИНАЛЬНЫЙ CTA + ФОРМА -->
+  <section class="section order" id="order">
+    <div class="container order__panel reveal">
+      <div class="order__seal">без сахара</div>
+      <h2 class="h2 align-center">Закажи натуральный перекус сегодня</h2>
+
+      <div class="order__layout">
+        <form class="order__form" id="order-form">
+          <label>Имя
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" required autocomplete="tel">
+          </label>
+          <label>Город
+            <input type="text" name="city" required autocomplete="address-level2">
+          </label>
+          <label>Способ доставки
+            <select name="delivery" required>
+              <option value="">Выберите способ</option>
+              <option value="cdek">СДЭК</option>
+              <option value="post">Почта России</option>
+              <option value="boxberry">Boxberry</option>
+              <option value="courier">Курьер</option>
+            </select>
+          </label>
+          <label>Комментарий
+            <textarea name="comment" rows="3"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary">Оформить заказ</button>
+          <p class="order__note" id="order-note" role="status"></p>
+        </form>
+
+        <aside class="order__cart" aria-label="Корзина">
+          <h3 class="h3">Ваш заказ</h3>
+          <ul id="order-cart-list" class="order__cart-list"></ul>
+          <div class="order__cart-total">
+            <span>Итого</span>
+            <span id="order-cart-total">0 ₽</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ПЛАВАЮЩАЯ КОРЗИНА -->
+<div class="cart-panel" id="cart-panel" hidden>
+  <div class="cart-panel__head">
+    <h3 class="h3">Корзина</h3>
+    <button type="button" class="icon-btn" id="cart-close" aria-label="Закрыть корзину">✕</button>
+  </div>
+  <ul class="cart-panel__list" id="cart-panel-list"></ul>
+  <div class="cart-panel__total">
+    <span>Итого</span>
+    <span id="cart-panel-total">0 ₽</span>
+  </div>
+  <a href="#order" class="btn btn--primary cart-panel__cta" id="cart-checkout">Оформить</a>
+</div>
+
+<!-- 4.11 FOOTER -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a href="#" class="header__logo">
+        <span class="photo-placeholder photo-placeholder--logo" data-aspect="3/1">[ФОТО: логотип, горизонтальный]</span>
+        <span class="header__logo-text">AVICENNA FOOD</span>
+      </a>
+      <p class="footer__tagline">Натуральные сладости без лишнего.</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Навигация в подвале">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#composition">Состав</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#delivery">Доставка</a>
+    </nav>
+
+    <div class="footer__contacts">
+      <p>Контакты: [уточнить у владельца]</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Telegram">Telegram</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <p class="footer__copy">© Avicenna Food</p>
+</footer>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
