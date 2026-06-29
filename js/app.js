@@ -35,6 +35,22 @@
 
   const fmt = (n) => `${n.toLocaleString('ru-RU')} ₽`;
 
+  /* ===== Уведомления о заказах в Telegram =====
+     Токен бота НЕ хранится здесь — заказ отправляется на свой сервер (Cloudflare Worker),
+     который уже сам, скрыто от посетителей сайта, пересылает сообщение в Telegram. */
+  const ORDER_WORKER_URL = 'https://avicenna-order.WORKERS_URL_HERE.workers.dev';
+  const DELIVERY_LABELS = {
+    cdek: 'СДЭК', post: 'Почта России', wildberries: 'Wildberries', ozon: 'Ozon', courier: 'Курьер'
+  };
+
+  function sendTelegramOrder(text) {
+    return fetch(ORDER_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+  }
+
   /* ===== Состояние корзины (только в памяти сессии, без localStorage) ===== */
   const cart = new Map(); // id -> qty
 
@@ -274,11 +290,46 @@
         note.style.color = 'var(--orange)';
         return;
       }
+
+      const data = new FormData(form);
+      const itemsText = [...cart.entries()].map(([id, qty]) => {
+        const p = PRODUCTS.find(p => p.id === id);
+        return p ? `${p.name} × ${qty} (${fmt(p.packPrice * qty)})` : '';
+      }).filter(Boolean).join('\n');
+
+      const message = [
+        '🛒 Новый заказ — Avicenna Food',
+        `Имя: ${data.get('name')}`,
+        `Телефон: ${data.get('phone')}`,
+        `Город: ${data.get('city')}`,
+        `Доставка: ${DELIVERY_LABELS[data.get('delivery')] || data.get('delivery')}`,
+        data.get('comment') ? `Комментарий: ${data.get('comment')}` : '',
+        '',
+        itemsText,
+        '',
+        `Итого: ${fmt(total)}`
+      ].filter(Boolean).join('\n');
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
       note.style.color = '';
-      note.textContent = `Спасибо, заказ принят! Товаров: ${count}, на сумму ${fmt(total)}. Мы свяжемся с вами по указанному телефону.`;
-      cart.clear();
-      renderCartViews();
-      form.reset();
+      note.textContent = 'Отправляем заказ...';
+
+      sendTelegramOrder(message)
+        .then((res) => {
+          if (!res.ok) throw new Error('Telegram API error');
+          note.textContent = `Спасибо, заказ принят! Товаров: ${count}, на сумму ${fmt(total)}. Мы свяжемся с вами по указанному телефону.`;
+          cart.clear();
+          renderCartViews();
+          form.reset();
+        })
+        .catch(() => {
+          note.style.color = 'var(--orange)';
+          note.textContent = 'Не удалось отправить заказ автоматически. Пожалуйста, свяжитесь с нами напрямую.';
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+        });
     });
   }
 
