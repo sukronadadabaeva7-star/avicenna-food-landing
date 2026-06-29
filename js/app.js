@@ -38,7 +38,7 @@
   /* ===== Уведомления о заказах в Telegram =====
      Токен бота НЕ хранится здесь — заказ отправляется на свой сервер (Cloudflare Worker),
      который уже сам, скрыто от посетителей сайта, пересылает сообщение в Telegram. */
-  const ORDER_WORKER_URL = 'https://avicenna-order.WORKERS_URL_HERE.workers.dev';
+  const ORDER_WORKER_URL = 'https://avicenna-order.sukronadadabaeva7.workers.dev/';
   const DELIVERY_LABELS = {
     cdek: 'СДЭК', post: 'Почта России', wildberries: 'Wildberries', ozon: 'Ozon', courier: 'Курьер'
   };
